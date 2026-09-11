@@ -696,6 +696,84 @@
     transform: scale(0.85);
   }
 }
+
+/* ========== RECENT PAYOUTS TICKER (Upgraded) ========== */
+.payouts-section {
+  background: #0b2347;
+  padding: 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+
+.payouts-label {
+  background: #0f2c59;
+  color: #5eead4;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0 22px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  z-index: 2;
+}
+
+.payouts-track {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.payouts-wrapper {
+  display: flex;
+  width: max-content;
+  animation: scrollPayouts 40s linear infinite;
+}
+
+.payouts-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.payout-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 36px;
+  color: rgba(255,255,255,0.92);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.payout-item .dot {
+  width: 7px;
+  height: 7px;
+  background: #34d399;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 1.8s infinite;
+}
+
+.payout-item strong {
+  color: #5eead4;
+  font-weight: 600;
+}
+
+@keyframes scrollPayouts {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
   </style>
 </head>
 <body>
@@ -732,6 +810,35 @@
       </div>
     </div>
   </section>
+
+  <!-- ========== RECENT PAYOUTS TICKER ========== -->
+<div class="payouts-section">
+  <div class="payouts-label">Recent Payouts</div>
+  
+  <div class="payouts-track">
+    <div class="payouts-wrapper">
+      <!-- First set -->
+      <div class="payout-item"><span class="dot"></span> Sarah from Texas received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Michael from Florida received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Jessica from California received <strong>$1,000</strong></div>
+      <div class="payout-item"><span class="dot"></span> David from New York received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Emily from Ohio received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Chris from Georgia received <strong>$1,000</strong></div>
+      <div class="payout-item"><span class="dot"></span> Amanda from Illinois received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Ryan from Arizona received <strong>$500</strong></div>
+
+      <!-- Duplicate for seamless loop -->
+      <div class="payout-item"><span class="dot"></span> Sarah from Texas received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Michael from Florida received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Jessica from California received <strong>$1,000</strong></div>
+      <div class="payout-item"><span class="dot"></span> David from New York received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Emily from Ohio received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Chris from Georgia received <strong>$1,000</strong></div>
+      <div class="payout-item"><span class="dot"></span> Amanda from Illinois received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Ryan from Arizona received <strong>$500</strong></div>
+    </div>
+  </div>
+</div>
 
   <!-- ========== JOB DETAILS ========== -->
   <section class="section" id="job">
