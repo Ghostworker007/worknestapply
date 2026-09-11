@@ -544,6 +544,50 @@
       margin: 0 auto 20px;
     }
 
+        /* ========== MOBILE HEADER FIX ========== */
+@media (max-width: 768px) {
+  .header-inner {
+    height: 60px;
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+    gap: 8px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* prevents the logo from looking stretched */
+  }
+
+  /* Hide the text "Work Nest Careers" on very small screens if needed */
+  /* Uncomment the next 3 lines if you still want it smaller */
+  /*
+  .logo span {
+    display: none;
+  }
+  */
+
+  nav {
+    display: none; /* already hidden, just making sure */
+  }
+
+  .btn-outline {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+    
+
     /* ========== FOOTER ========== */
     footer {
       background: var(--primary);
@@ -625,6 +669,33 @@
         display: block;
       }
     }
+
+    /* Blinking status dot */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blink-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #34d399; /* nice bright green */
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1.4s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+}
   </style>
 </head>
 <body>
@@ -633,7 +704,7 @@
   <header id="mainHeader">
     <div class="header-inner">
       <a href="#" class="logo">
-        <div class="logo-icon"><img title="wnlogo" src="pictures/nest3.png" width="40" height="40"></div>
+        <div class="logo-icon"><img title="Work Nest Logo" src="pictures/nest3.png" width="40" height="40" alt="Work Nest Logo"></div>
         Work Nest Careers<br>
         <!-- <h6 class>Real Jobs. Flexible Work. A Bright Future</h6> -->
       </a>
@@ -649,7 +720,10 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="badge">US-BASED • FULLY REMOTE</div>
+      <div class="badge">
+        <span class="blink-dot"></span>
+        US-BASED • FULLY REMOTE
+        </div>
       <h1>Start Earning from Home<br>Posting Simple Ads</h1>
       <p>Join Work Nest Careers and earn $500 every 6 days of work by posting ads on Facebook Marketplace and Nextdoor. Flexible schedule, no experience required.</p>
       <div class="hero-cta">
