@@ -698,7 +698,7 @@
 }
 
 /* ========== RECENT PAYOUTS TICKER (Mobile Optimized) ========== */
-.payouts-section {
+/* .payouts-section {
   background: #0b2347;
   padding: 0;
   overflow: hidden;
@@ -773,10 +773,10 @@
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(0.8); }
-}
+} */
 
 /* ===== MOBILE IMPROVEMENTS ===== */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .payouts-section {
     height: 44px;
   }
@@ -796,7 +796,7 @@
     width: 5px;
     height: 5px;
   }
-}
+} */
 
   </style>
 </head>
@@ -836,23 +836,23 @@
   </section>
 
   <!-- ========== RECENT PAYOUTS TICKER ========== -->
-<div class="payouts-section">
+<!-- <div class="payouts-section">
   <div class="payouts-label">Recent Payouts</div>
   
   <div class="payouts-track">
-    <div class="payouts-wrapper">
+    <div class="payouts-wrapper"> -->
       <!-- First set -->
-      <div class="payout-item"><span class="dot"></span> Sarah from Texas received <strong>$500</strong></div>
+      <!-- <div class="payout-item"><span class="dot"></span> Sarah from Texas received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Michael from Florida received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Jessica from California received <strong>$1,000</strong></div>
       <div class="payout-item"><span class="dot"></span> David from New York received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Emily from Ohio received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Chris from Georgia received <strong>$1,000</strong></div>
       <div class="payout-item"><span class="dot"></span> Amanda from Illinois received <strong>$500</strong></div>
-      <div class="payout-item"><span class="dot"></span> Ryan from Arizona received <strong>$500</strong></div>
+      <div class="payout-item"><span class="dot"></span> Ryan from Arizona received <strong>$500</strong></div> -->
 
       <!-- Duplicate for seamless loop -->
-      <div class="payout-item"><span class="dot"></span> Sarah from Texas received <strong>$500</strong></div>
+      <!-- <div class="payout-item"><span class="dot"></span> Sarah from Texas received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Michael from Florida received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Jessica from California received <strong>$1,000</strong></div>
       <div class="payout-item"><span class="dot"></span> David from New York received <strong>$500</strong></div>
@@ -860,9 +860,9 @@
       <div class="payout-item"><span class="dot"></span> Chris from Georgia received <strong>$1,000</strong></div>
       <div class="payout-item"><span class="dot"></span> Amanda from Illinois received <strong>$500</strong></div>
       <div class="payout-item"><span class="dot"></span> Ryan from Arizona received <strong>$500</strong></div>
-    </div>
-  </div>
-</div>
+    </div> -->
+  <!-- </div>
+</div> -->
 
   <!-- ========== JOB DETAILS ========== -->
   <section class="section" id="job">
@@ -1072,17 +1072,26 @@
           <div class="form-group full">
             <label>Please confirm the following <span class="required">*</span></label>
             <div class="checkbox-group">
-              <div class="checkbox-item">
-                <input type="checkbox" id="canOperate" name="canOperate" required>
-                <label for="canOperate">I can operate a phone or laptop to perform simple tasks</label>
-              </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="canOperate" name="canOperate" required>
+                    <label for="canOperate">I can operate a phone or laptop to perform simple tasks</label>
+                </div>
+                <div class="error-msg" id="canOperateError">You must confirm you can use a phone or laptop</div>
               <div class="checkbox-item">
                 <input type="checkbox" id="otherJobs" name="otherJobs">
                 <label for="otherJobs">I currently have other jobs (optional – check if yes)</label>
               </div>
             </div>
-            <div class="error-msg" id="canOperateError">You must confirm you can use a phone or laptop</div>
           </div>
+        </div>
+
+        <!-- Terms & Privacy Agreement -->
+        <div class="form-group full" style="margin-top: 10px;">
+            <div class="checkbox-item">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+            <label for="agreeTerms">
+            I agree to the <a href="#" id="openPrivacy" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a> Terms & Conditions.
+            <div class="error-msg" id="agreeTermsError">You must agree to the Privacy Policy before submitting</div>
         </div>
 
         <div class="form-actions">
@@ -1101,6 +1110,64 @@
       </div>
     </div>
   </section>
+
+  <!-- Privacy Policy Modal -->
+    <div id="privacyModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: white; max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; border-radius: 12px; padding: 32px; position: relative;">
+        <button id="closePrivacy" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
+        
+        <h2 style="color: #0f2c59; margin-bottom: 8px;">Privacy Policy</h2>
+        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 24px;">Last updated: October 2025</p>
+
+        <div style="color: #1e293b; line-height: 1.7; font-size: 0.95rem;">
+        <p><strong>Work Nest Careers</strong> is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard the personal information you provide when applying for remote positions through our website.</p>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">Information We Collect</h3>
+        <p>When you submit an application, we collect the following information:</p>
+        <ul style="padding-left: 20px; margin: 10px 0;">
+            <li>Full name</li>
+            <li>Date of birth</li>
+            <li>Phone number</li>
+            <li>Email address</li>
+            <li>State, city, and zip code</li>
+            <li>Gender</li>
+            <li>Preferred work hours</li>
+            <li>Responses to application questions</li>
+        </ul>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">Why We Collect This Information</h3>
+        <p>We collect this information solely for legitimate employment and hiring purposes, including:</p>
+        <ul style="padding-left: 20px; margin: 10px 0;">
+            <li>To verify your identity and eligibility to work in the United States</li>
+            <li>To assess your suitability for the remote position</li>
+            <li>To contact you regarding your application status</li>
+            <li>To comply with applicable employment and record-keeping requirements</li>
+        </ul>
+        <p>Your <strong>date of birth</strong> is collected only to confirm that you meet the minimum age requirement for employment and for internal verification purposes. It will not be used for any other reason.</p>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">How We Use Your Information</h3>
+        <p>Your information is used exclusively for the recruitment and hiring process. We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">Data Security</h3>
+        <p>We take reasonable administrative and technical measures to protect your personal information from unauthorized access, loss, or misuse.</p>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">Data Retention</h3>
+        <p>We retain application data only for as long as necessary to complete the hiring process or as required by law. Unsuccessful applications are typically deleted within a reasonable period.</p>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">Your Rights</h3>
+        <p>You may request access to, correction of, or deletion of your personal information by contacting us at <strong>worknestapply@gmail.com</strong>.</p>
+
+        <h3 style="margin: 24px 0 10px; color: #0f2c59;">Contact Us</h3>
+        <p>If you have any questions about this Privacy Policy, please email us at:<br>
+        <strong>worknestapply@gmail.com</strong><br>
+        Work Nest Careers – New York, NY.</p>
+        </div>
+
+        <div style="margin-top: 28px; text-align: center;">
+        <button id="closePrivacyBtn" style="background: #2a9d8f; color: white; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; cursor: pointer;">I Understand</button>
+        </div>
+        </div>
+    </div>
 
   <!-- ========== FOOTER ========== -->
   <footer>
@@ -1138,6 +1205,32 @@
   </footer>
 
   <script>
+    // Privacy Policy Modal
+    const privacyModal = document.getElementById('privacyModal');
+    const openPrivacy = document.getElementById('openPrivacy');
+    const closePrivacy = document.getElementById('closePrivacy');
+    const closePrivacyBtn = document.getElementById('closePrivacyBtn');
+
+    openPrivacy.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyModal.style.display = 'flex';
+    });
+
+    closePrivacy.addEventListener('click', () => {
+    privacyModal.style.display = 'none';
+    });
+
+    closePrivacyBtn.addEventListener('click', () => {
+    privacyModal.style.display = 'none';
+    });
+
+    privacyModal.addEventListener('click', (e) => {
+    if (e.target === privacyModal) {
+        privacyModal.style.display = 'none';
+    }
+    });
+
+
     // ========== SCROLL REVEAL ==========
     const revealElements = document.querySelectorAll(
       '.reveal, .reveal-left, .reveal-right, .reveal-scale'
@@ -1270,6 +1363,13 @@
         showError('zip', 'Please enter a valid US zip code');
         isValid = false;
       }
+
+      // Privacy Policy
+      const agreeTerms = document.getElementById('agreeTerms');
+        if (!agreeTerms.checked) {
+        showError('agreeTerms', 'You must agree to the Privacy Policy before submitting');
+        isValid = false;
+    }
 
       // Can Operate checkbox
       const canOperate = document.getElementById('canOperate');
