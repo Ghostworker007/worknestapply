@@ -544,6 +544,32 @@
       margin: 0 auto 20px;
     }
 
+    .trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  color: #64748b;
+  background: #f0fdf9;
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid #ccfbf1;
+}
+
+.trust-badge .trust-icon {
+  background: #2a9d8f;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
         /* ========== MOBILE HEADER FIX ========== */
 @media (max-width: 768px) {
   .header-inner {
@@ -685,6 +711,70 @@
   display: inline-block;
   animation: blink 1.4s infinite ease-in-out;
 }
+
+/* ========== FAQ ========== */
+.faq-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(15, 44, 89, 0.05);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 22px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f2c59;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.faq-question:hover {
+  background: #f8fafc;
+}
+
+.faq-icon {
+  font-size: 1.4rem;
+  color: #2a9d8f;
+  font-weight: 400;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 0 22px 18px;
+}
+
+.faq-answer p {
+  color: #475569;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+
 
 @keyframes blink {
   0%, 100% {
@@ -831,6 +921,10 @@
       <div class="hero-cta">
         <a href="#apply" class="btn btn-primary">Apply Now – It’s Free</a>
         <a href="#job" class="btn btn-outline">Learn More</a>
+        <div class="trust-badge">
+        <span class="trust-icon">✓</span>
+        No fees • US-based company • Legitimate opportunity
+        </div>
       </div>
     </div>
   </section>
@@ -1096,8 +1190,13 @@
 
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Submit Application</button>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                No fees • US-based company • Legitimate opportunity
+            </div>
           <p class="form-note">By submitting you confirm you are based in the United States and the information provided is accurate.</p>
         </div>
+        
       </form>
 
       <!-- Success State -->
@@ -1168,6 +1267,76 @@
         </div>
         </div>
     </div>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section class="section" id="faq">
+        <div class="section-title reveal">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know before applying</p>
+        </div>
+
+        <div class="faq-container reveal">
+            <div class="faq-item">
+            <button class="faq-question">
+                Is this a real job?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes. Work Nest Careers offers legitimate remote positions for US-based individuals. You will be posting simple ads on Facebook Marketplace and Nextdoor following clear guidelines we provide.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Do I need any experience?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>No experience is required. As long as you can use a phone or laptop to perform simple tasks, you can do this job. We provide clear instructions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How and when do I get paid?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>You earn $500 for every 6 days of work completed. That equals $1,000 every 12 days. Payments are processed consistently once your work is verified. Payment methods include PayPal, Chime, Cashapp, Zelle and direct deposit.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Are there any fees?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>No. There are no application fees, training fees, or hidden charges at any point. If anyone asks you for money, it is not us.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What equipment do I need?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Just a smartphone or a laptop with internet access. That’s all you need to get started.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Is this only for people in the United States?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes. This position is strictly available to applicants who are based in the United States.</p>
+            </div>
+            </div>
+        </div>
+    </section>
 
   <!-- ========== FOOTER ========== -->
   <footer>
@@ -1431,6 +1600,19 @@ Submitted via Work Nest Careers website`
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+        
+        // Close other open items
+        document.querySelectorAll('.faq-item').forEach(other => {
+        if (other !== item) other.classList.remove('active');
+        });
+        });
     });
   </script>
 </body>
