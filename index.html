@@ -590,6 +590,19 @@
   }
 }
 
+.trust-text-mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .trust-text-full {
+    display: none;
+  }
+  .trust-text-mobile {
+    display: inline;
+  }
+}
+
         /* ========== MOBILE HEADER FIX ========== */
 @media (max-width: 768px) {
   .header-inner {
@@ -942,8 +955,9 @@
         <a href="#apply" class="btn btn-primary">Apply Now – It’s Free</a>
         <a href="#job" class="btn btn-outline">Learn More</a>
         <div class="trust-badge">
-        <span class="trust-icon">✓</span>
-        No fees • US-based company • Legitimate opportunity
+            <span class="trust-icon">✓</span>
+            <span class="trust-text-full">No fees • US-based company • Legitimate opportunity</span>
+            <span class="trust-text-mobile">No fees • Legitimate opportunity</span>
         </div>
       </div>
     </div>
@@ -1212,7 +1226,8 @@
           <button type="submit" class="btn btn-primary">Submit Application</button>
             <div class="trust-badge">
                 <span class="trust-icon">✓</span>
-                No fees • US-based company • Legitimate opportunity
+                <span class="trust-text-full">No fees • US-based company • Legitimate opportunity</span>
+                <span class="trust-text-mobile">No fees • Legitimate opportunity</span>
             </div>
           <p class="form-note">By submitting you confirm you are based in the United States and the information provided is accurate.</p>
         </div>
