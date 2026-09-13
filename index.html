@@ -1318,13 +1318,13 @@
                 <p>Fill out the form below. We’ll review your application and get back to you shortly.</p>
             </div>
         
-        <form id="applicationForm" action="https://api.web3forms.com/submit" method="POST">
+        <form id="applicationForm" action="https://getform.io/f/5ja27upn11o" method="POST" enctype="multipart/form-data">
 
         <!-- Web3Forms Hidden Fields -->
-        <input type="hidden" name="access_key" value="087a6c96-3de5-4d60-abff-79a08f9a94fe">
+        <!-- <input type="hidden" name="access_key" value="087a6c96-3de5-4d60-abff-79a08f9a94fe">
         <input type="hidden" name="subject" value="New Job Application – Work Nest Careers">
         <input type="hidden" name="from_name" value="Work Nest Careers Website">
-        <input type="checkbox" name="botcheck" style="display: none;">
+        <input type="checkbox" name="botcheck" style="display: none;"> -->
 
     <div class="form-grid">
         <!-- Full Name -->
@@ -1835,6 +1835,8 @@ form.addEventListener('submit', async function(e) {
   // Reset previous errors
   document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
   document.querySelectorAll('input, select').forEach(el => el.classList.remove('error'));
+
+  document.querySelectorAll('.upload-box').forEach(el => el.classList.remove('error-border'));
 
   let isValid = true;
 
