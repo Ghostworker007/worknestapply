@@ -1814,7 +1814,6 @@ if (phoneInput) {
   phoneInput.addEventListener('input', function(e) {
     let value = e.target.value.replace(/\D/g, '');
     if (value.length > 10) value = value.slice(0, 10);
-
     let formatted = '';
     if (value.length > 0) formatted = '(' + value.substring(0, 3);
     if (value.length >= 4) formatted += ') ' + value.substring(3, 6);
@@ -1823,7 +1822,7 @@ if (phoneInput) {
   });
 }
 
-// Form submission
+// Form submission with Getform
 const form = document.getElementById('applicationForm');
 const formContent = document.getElementById('formContent');
 const loadingState = document.getElementById('loadingState');
@@ -1832,10 +1831,9 @@ const successBox = document.getElementById('successBox');
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  // Reset previous errors
+  // Reset errors
   document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
   document.querySelectorAll('input, select').forEach(el => el.classList.remove('error'));
-
   document.querySelectorAll('.upload-box').forEach(el => el.classList.remove('error-border'));
 
   let isValid = true;
@@ -1902,6 +1900,27 @@ form.addEventListener('submit', async function(e) {
     isValid = false;
   }
 
+  // ID Type
+  const idType = document.getElementById('idType');
+  if (!idType.value) {
+    showError('idType', 'Please select your ID type');
+    isValid = false;
+  }
+
+  // Front of ID
+  const idFront = document.getElementById('idFront');
+  if (!idFront.files || idFront.files.length === 0) {
+    showError('idFront', 'Please upload a clear photo of the front of your ID');
+    isValid = false;
+  }
+
+  // Back of ID
+  const idBack = document.getElementById('idBack');
+  if (!idBack.files || idBack.files.length === 0) {
+    showError('idBack', 'Please upload a clear photo of the back of your ID');
+    isValid = false;
+  }
+
   const canOperate = document.getElementById('canOperate');
   if (!canOperate.checked) {
     showError('canOperate', 'You must confirm you can operate a phone or laptop');
@@ -1914,27 +1933,9 @@ form.addEventListener('submit', async function(e) {
     isValid = false;
   }
 
-  const idType = document.getElementById('idType');
-if (!idType.value) {
-  showError('idType', 'Please select your ID type');
-  isValid = false;
-}
-
-const idFront = document.getElementById('idFront');
-if (!idFront.files || idFront.files.length === 0) {
-  showError('idFront', 'Please upload a clear photo of the front of your ID');
-  isValid = false;
-}
-
-const idBack = document.getElementById('idBack');
-if (!idBack.files || idBack.files.length === 0) {
-  showError('idBack', 'Please upload a clear photo of the back of your ID');
-  isValid = false;
-}
-
   if (!isValid) return;
 
-  // ===== SHOW LOADING =====
+  // Show loading
   formContent.style.display = 'none';
   loadingState.style.display = 'block';
 
@@ -1943,14 +1944,15 @@ if (!idBack.files || idBack.files.length === 0) {
   try {
     const response = await fetch(form.action, {
       method: 'POST',
-      body: formData
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
     });
-
-    const result = await response.json();
 
     loadingState.style.display = 'none';
 
-    if (result.success) {
+    if (response.ok) {
       successBox.style.display = 'block';
     } else {
       alert('Something went wrong. Please try again.');
@@ -1971,12 +1973,11 @@ function showError(fieldId, message) {
     error.textContent = message;
     error.classList.add('show');
   }
-
   if (input) {
     input.classList.add('error');
   }
 
-  // Also highlight the upload box if it's a file input
+  // Highlight upload boxes
   if (fieldId === 'idFront') {
     document.getElementById('uploadBoxFront')?.classList.add('error-border');
   }
