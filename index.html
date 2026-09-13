@@ -820,6 +820,49 @@
   }
 }
 
+/* Loading Spinner */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #2a9d8f;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Icon */
+.success-icon {
+  width: 68px;
+  height: 68px;
+  background: #d1fae5;
+  color: #059669;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 20px;
+  animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* ========== RECENT PAYOUTS TICKER (Mobile Optimized) ========== */
 /* .payouts-section {
   background: #0b2347;
@@ -1051,197 +1094,208 @@
   <!-- ========== APPLICATION FORM ========== -->
   <section id="apply">
     <div class="form-container reveal-scale">
-      <div class="form-header reveal">
-        <h2>Application Form</h2>
-        <p>Fill out the form below. We’ll review your application and get back to you shortly.</p>
-      </div>
-
-      <form id="applicationForm" novalidate>
-        <div class="form-grid">
-          <!-- Full Name -->
-          <div class="form-group full">
-            <label for="fullName">Full Name <span class="required">*</span></label>
-            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
-            <div class="error-msg" id="fullNameError">Please enter your full name</div>
-          </div>
-
-          <!-- Date of Birth -->
-          <div class="form-group">
-            <label for="dob">Date of Birth <span class="required">*</span></label>
-            <input type="date" id="dob" name="dob" required>
-            <div class="error-msg" id="dobError">Please select your date of birth</div>
-          </div>
-
-          <!-- Gender -->
-          <div class="form-group">
-            <label for="gender">Gender <span class="required">*</span></label>
-            <select id="gender" name="gender" required>
-              <option value="">Select gender</option>
-              <option value="Female">Female</option>
-              <option value="Male">Male</option>
-              <option value="Non-binary">Non-binary</option>
-              <option value="Prefer not to say">Prefer not to say</option>
-            </select>
-            <div class="error-msg" id="genderError">Please select your gender</div>
-          </div>
-
-          <!-- Phone -->
-          <div class="form-group">
-            <label for="phone">Phone Number (US) <span class="required">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" maxlength="14" required>
-            <div class="error-msg" id="phoneError">Please enter a valid US phone number</div>
-          </div>
-
-          <!-- Work Hours -->
-          <div class="form-group">
-            <label for="workHours">Preferred Daily Work Hours <span class="required">*</span></label>
-            <select id="workHours" name="workHours" required>
-              <option value="">Select hours</option>
-              <option value="3 hours">3 hours</option>
-              <option value="4 hours">4 hours</option>
-              <option value="5 hours">5 hours</option>
-              <option value="6 hours">6 hours</option>
-              <option value="7 hours">7 hours</option>
-              <option value="8 hours">8 hours</option>
-              <!-- <option value="Varies (3-8 hours)">Varies (3-8 hours)</option> -->
-            </select>
-            <div class="error-msg" id="workHoursError">Please select your preferred hours</div>
-          </div>
-
-          <!-- Email -->
-          <div class="form-group">
-            <label for="email">Working Email Address <span class="required">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-            <div class="error-msg" id="emailError">Please enter a valid email</div>
-          </div>
-
-          <!-- Confirm Email -->
-          <div class="form-group">
-            <label for="confirmEmail">Confirm Email Address <span class="required">*</span></label>
-            <input type="email" id="confirmEmail" name="confirmEmail" placeholder="you@example.com" required>
-            <div class="error-msg" id="confirmEmailError">Emails do not match</div>
-          </div>
-
-          <!-- State -->
-          <div class="form-group">
-            <label for="state">State <span class="required">*</span></label>
-            <select id="state" name="state" required>
-              <option value="">Select state</option>
-              <option value="Alabama">Alabama</option>
-              <option value="Alaska">Alaska</option>
-              <option value="Arizona">Arizona</option>
-              <option value="Arkansas">Arkansas</option>
-              <option value="California">California</option>
-              <option value="Colorado">Colorado</option>
-              <option value="Connecticut">Connecticut</option>
-              <option value="Delaware">Delaware</option>
-              <option value="Florida">Florida</option>
-              <option value="Georgia">Georgia</option>
-              <option value="Hawaii">Hawaii</option>
-              <option value="Idaho">Idaho</option>
-              <option value="Illinois">Illinois</option>
-              <option value="Indiana">Indiana</option>
-              <option value="Iowa">Iowa</option>
-              <option value="Kansas">Kansas</option>
-              <option value="Kentucky">Kentucky</option>
-              <option value="Louisiana">Louisiana</option>
-              <option value="Maine">Maine</option>
-              <option value="Maryland">Maryland</option>
-              <option value="Massachusetts">Massachusetts</option>
-              <option value="Michigan">Michigan</option>
-              <option value="Minnesota">Minnesota</option>
-              <option value="Mississippi">Mississippi</option>
-              <option value="Missouri">Missouri</option>
-              <option value="Montana">Montana</option>
-              <option value="Nebraska">Nebraska</option>
-              <option value="Nevada">Nevada</option>
-              <option value="New Hampshire">New Hampshire</option>
-              <option value="New Jersey">New Jersey</option>
-              <option value="New Mexico">New Mexico</option>
-              <option value="New York">New York</option>
-              <option value="North Carolina">North Carolina</option>
-              <option value="North Dakota">North Dakota</option>
-              <option value="Ohio">Ohio</option>
-              <option value="Oklahoma">Oklahoma</option>
-              <option value="Oregon">Oregon</option>
-              <option value="Pennsylvania">Pennsylvania</option>
-              <option value="Rhode Island">Rhode Island</option>
-              <option value="South Carolina">South Carolina</option>
-              <option value="South Dakota">South Dakota</option>
-              <option value="Tennessee">Tennessee</option>
-              <option value="Texas">Texas</option>
-              <option value="Utah">Utah</option>
-              <option value="Vermont">Vermont</option>
-              <option value="Virginia">Virginia</option>
-              <option value="Washington">Washington</option>
-              <option value="West Virginia">West Virginia</option>
-              <option value="Wisconsin">Wisconsin</option>
-              <option value="Wyoming">Wyoming</option>
-              <option value="District of Columbia">District of Columbia</option>
-            </select>
-            <div class="error-msg" id="stateError">Please select your state</div>
-          </div>
-
-          <!-- City -->
-          <div class="form-group">
-            <label for="city">City <span class="required">*</span></label>
-            <input type="text" id="city" name="city" placeholder="e.g. Brooklyn" required>
-            <div class="error-msg" id="cityError">Please enter your city</div>
-          </div>
-
-          <!-- Zip -->
-          <div class="form-group">
-            <label for="zip">Zip Code <span class="required">*</span></label>
-            <input type="text" id="zip" name="zip" placeholder="10001" maxlength="10" required>
-            <div class="error-msg" id="zipError">Please enter a valid zip code</div>
-          </div>
-
-          <!-- Checkboxes -->
-          <div class="form-group full">
-            <label>Please confirm the following <span class="required">*</span></label>
-            <div class="checkbox-group">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="canOperate" name="canOperate" required>
-                    <label for="canOperate">I can operate a phone or laptop to perform simple tasks</label>
-                </div>
-                <div class="error-msg" id="canOperateError">You must confirm you can use a phone or laptop</div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="otherJobs" name="otherJobs">
-                <label for="otherJobs">I currently have other jobs (optional – check if yes)</label>
-              </div>
+        <div id="formContent">
+            <div class="form-header reveal">
+                <h2>Application Form</h2>
+                <p>Fill out the form below. We’ll review your application and get back to you shortly.</p>
             </div>
-          </div>
         </div>
+      <form id="applicationForm" action="https://api.web3forms.com/submit" method="POST">
 
-        <!-- Terms & Privacy Agreement -->
-        <div class="form-group full" style="margin-top: 10px;">
+    <!-- Web3Forms Hidden Fields -->
+    <input type="hidden" name="access_key" value="087a6c96-3de5-4d60-abff-79a08f9a94fe">
+    <input type="hidden" name="subject" value="New Job Application – Work Nest Careers">
+    <input type="hidden" name="from_name" value="Work Nest Careers Website">
+    <input type="checkbox" name="botcheck" style="display: none;">
+
+  <div class="form-grid">
+    <!-- Full Name -->
+    <div class="form-group full">
+      <label for="fullName">Full Name <span class="required">*</span></label>
+      <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+      <div class="error-msg" id="fullNameError">Please enter your full name</div>
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="form-group">
+      <label for="dob">Date of Birth <span class="required">*</span></label>
+      <input type="date" id="dob" name="dob" required>
+      <div class="error-msg" id="dobError">Please select your date of birth</div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+      <label for="gender">Gender <span class="required">*</span></label>
+      <select id="gender" name="gender" required>
+        <option value="">Select gender</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="Prefer not to say">Prefer not to say</option>
+      </select>
+      <div class="error-msg" id="genderError">Please select your gender</div>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+      <label for="phone">Phone Number (US) <span class="required">*</span></label>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" maxlength="14" required>
+      <div class="error-msg" id="phoneError">Please enter a valid US phone number</div>
+    </div>
+
+    <!-- Work Hours -->
+    <div class="form-group">
+      <label for="workHours">Preferred Daily Work Hours <span class="required">*</span></label>
+      <select id="workHours" name="workHours" required>
+        <option value="">Select hours</option>
+        <option value="3 hours">3 hours</option>
+        <option value="4 hours">4 hours</option>
+        <option value="5 hours">5 hours</option>
+        <option value="6 hours">6 hours</option>
+        <option value="7 hours">7 hours</option>
+        <option value="8 hours">8 hours</option>
+      </select>
+      <div class="error-msg" id="workHoursError">Please select your preferred hours</div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Working Email Address <span class="required">*</span></label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <div class="error-msg" id="emailError">Please enter a valid email</div>
+    </div>
+
+    <!-- Confirm Email -->
+    <div class="form-group">
+      <label for="confirmEmail">Confirm Email Address <span class="required">*</span></label>
+      <input type="email" id="confirmEmail" name="confirmEmail" placeholder="you@example.com" required>
+      <div class="error-msg" id="confirmEmailError">Emails do not match</div>
+    </div>
+
+    <!-- State -->
+    <div class="form-group">
+      <label for="state">State <span class="required">*</span></label>
+      <select id="state" name="state" required>
+        <option value="">Select state</option>
+        <option value="Alabama">Alabama</option>
+        <option value="Alaska">Alaska</option>
+        <option value="Arizona">Arizona</option>
+        <option value="Arkansas">Arkansas</option>
+        <option value="California">California</option>
+        <option value="Colorado">Colorado</option>
+        <option value="Connecticut">Connecticut</option>
+        <option value="Delaware">Delaware</option>
+        <option value="Florida">Florida</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Hawaii">Hawaii</option>
+        <option value="Idaho">Idaho</option>
+        <option value="Illinois">Illinois</option>
+        <option value="Indiana">Indiana</option>
+        <option value="Iowa">Iowa</option>
+        <option value="Kansas">Kansas</option>
+        <option value="Kentucky">Kentucky</option>
+        <option value="Louisiana">Louisiana</option>
+        <option value="Maine">Maine</option>
+        <option value="Maryland">Maryland</option>
+        <option value="Massachusetts">Massachusetts</option>
+        <option value="Michigan">Michigan</option>
+        <option value="Minnesota">Minnesota</option>
+        <option value="Mississippi">Mississippi</option>
+        <option value="Missouri">Missouri</option>
+        <option value="Montana">Montana</option>
+        <option value="Nebraska">Nebraska</option>
+        <option value="Nevada">Nevada</option>
+        <option value="New Hampshire">New Hampshire</option>
+        <option value="New Jersey">New Jersey</option>
+        <option value="New Mexico">New Mexico</option>
+        <option value="New York">New York</option>
+        <option value="North Carolina">North Carolina</option>
+        <option value="North Dakota">North Dakota</option>
+        <option value="Ohio">Ohio</option>
+        <option value="Oklahoma">Oklahoma</option>
+        <option value="Oregon">Oregon</option>
+        <option value="Pennsylvania">Pennsylvania</option>
+        <option value="Rhode Island">Rhode Island</option>
+        <option value="South Carolina">South Carolina</option>
+        <option value="South Dakota">South Dakota</option>
+        <option value="Tennessee">Tennessee</option>
+        <option value="Texas">Texas</option>
+        <option value="Utah">Utah</option>
+        <option value="Vermont">Vermont</option>
+        <option value="Virginia">Virginia</option>
+        <option value="Washington">Washington</option>
+        <option value="West Virginia">West Virginia</option>
+        <option value="Wisconsin">Wisconsin</option>
+        <option value="Wyoming">Wyoming</option>
+        <option value="District of Columbia">District of Columbia</option>
+      </select>
+      <div class="error-msg" id="stateError">Please select your state</div>
+    </div>
+
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">City <span class="required">*</span></label>
+      <input type="text" id="city" name="city" placeholder="e.g. Brooklyn" required>
+      <div class="error-msg" id="cityError">Please enter your city</div>
+    </div>
+
+    <!-- Zip -->
+    <div class="form-group">
+      <label for="zip">Zip Code <span class="required">*</span></label>
+      <input type="text" id="zip" name="zip" placeholder="10001" maxlength="10" required>
+      <div class="error-msg" id="zipError">Please enter a valid zip code</div>
+    </div>
+
+    <!-- Checkboxes -->
+    <div class="form-group full">
+      <label>Please confirm the following <span class="required">*</span></label>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="canOperate" name="canOperate" value="Yes" required>
+          <label for="canOperate">I can operate a phone or laptop to perform simple tasks</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="otherJobs" name="otherJobs" value="Yes">
+          <label for="otherJobs">I currently have other jobs (optional – check if yes)</label>
+        </div>
+      </div>
+      <div class="error-msg" id="canOperateError">You must confirm you can use a phone or laptop</div>
+    </div>
+
+    <!-- Agree to Privacy Policy -->
+            <div class="form-group full">
             <div class="checkbox-item">
-            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
-            <label for="agreeTerms">
-            I agree to the <a href="#" id="openPrivacy" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a> Terms & Conditions.
+                <input type="checkbox" id="agreeTerms" name="agreeTerms" value="Yes" required>
+                <label for="agreeTerms">
+                I agree to the <a href="#" id="openPrivacy" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a> and Terms of Use.
+                </label>
+            </div>
             <div class="error-msg" id="agreeTermsError">You must agree to the Privacy Policy before submitting</div>
+            </div>
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Submit Application</button>
-          <p class="form-note">By submitting you confirm you are based in the United States and the information provided is accurate.</p>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+            <p class="form-note">By submitting you confirm you are based in the United States and the information provided is accurate.</p>
         </div>
-        <!-- <div class="trust-badge">
-            <span class="trust-icon">✓</span>
-            <span class="trust-text-full">No fees • US-based company • Verified</span>
-            <span class="trust-text-mobile">No fees • Verified</span>
-        </div> -->
-        
-      </form>
+    </form>
 
-      <!-- Success State -->
-      <div class="success-box" id="successBox">
+      <!-- Loading State -->
+        <div id="loadingState" style="display: none; text-align: center; padding: 50px 20px;">
+        <div class="spinner"></div>
+        <h3 style="color: var(--primary); margin: 20px 0 8px;">Submitting your application...</h3>
+        <p style="color: var(--text-light);">Please wait a moment</p>
+        </div>
+
+        <!-- Success State -->
+        <div id="successBox" style="display: none; text-align: center; padding: 50px 20px;">
         <div class="success-icon">✓</div>
-        <h3 style="color:var(--primary); margin-bottom:12px;">Application Ready to Send</h3>
-        <p style="color:var(--text-light); max-width:400px; margin:0 auto;">
-          Your email client should open with the application details. Please click <strong>Send</strong> to complete your submission to <strong>worknestapply@outlook.com</strong>.
+        <h3 style="color: var(--primary); margin-bottom: 12px;">Application Submitted Successfully!</h3>
+        <p style="color: var(--text-light); max-width: 420px; margin: 0 auto 12px;">
+            Thank you for applying to Work Nest Careers. We have received your application and will review it shortly.
         </p>
-      </div>
+        <p style="font-size: 0.9rem; color: #64748b;">You can close this page now.</p>
+        </div>
     </div>
   </section>
 
@@ -1463,179 +1517,150 @@
       }
     }, { passive: true });
 
-    // ========== PHONE FORMATTING ==========
-    const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', function(e) {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length > 10) value = value.slice(0, 10);
-      
-      let formatted = '';
-      if (value.length > 0) {
-        formatted = '(' + value.substring(0, 3);
-      }
-      if (value.length >= 4) {
-        formatted += ') ' + value.substring(3, 6);
-      }
-      if (value.length >= 7) {
-        formatted += '-' + value.substring(6, 10);
-      }
-      e.target.value = formatted;
+// Phone formatting
+const phoneInput = document.getElementById('phone');
+if (phoneInput) {
+  phoneInput.addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 10) value = value.slice(0, 10);
+
+    let formatted = '';
+    if (value.length > 0) formatted = '(' + value.substring(0, 3);
+    if (value.length >= 4) formatted += ') ' + value.substring(3, 6);
+    if (value.length >= 7) formatted += '-' + value.substring(6, 10);
+    e.target.value = formatted;
+  });
+}
+
+// Form submission
+const form = document.getElementById('applicationForm');
+const formContent = document.getElementById('formContent');
+const loadingState = document.getElementById('loadingState');
+const successBox = document.getElementById('successBox');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  // Reset previous errors
+  document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+  document.querySelectorAll('input, select').forEach(el => el.classList.remove('error'));
+
+  let isValid = true;
+
+  // ===== VALIDATION =====
+  const fullName = document.getElementById('fullName');
+  if (!fullName.value.trim() || fullName.value.trim().split(' ').length < 2) {
+    showError('fullName', 'Please enter your full name (first & last)');
+    isValid = false;
+  }
+
+  const dob = document.getElementById('dob');
+  if (!dob.value) {
+    showError('dob', 'Please select your date of birth');
+    isValid = false;
+  }
+
+  const gender = document.getElementById('gender');
+  if (!gender.value) {
+    showError('gender', 'Please select your gender');
+    isValid = false;
+  }
+
+  const phone = document.getElementById('phone');
+  if (phone.value.replace(/\D/g, '').length !== 10) {
+    showError('phone', 'Please enter a valid 10-digit US phone number');
+    isValid = false;
+  }
+
+  const workHours = document.getElementById('workHours');
+  if (!workHours.value) {
+    showError('workHours', 'Please select preferred work hours');
+    isValid = false;
+  }
+
+  const email = document.getElementById('email');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value)) {
+    showError('email', 'Please enter a valid email address');
+    isValid = false;
+  }
+
+  const confirmEmail = document.getElementById('confirmEmail');
+  if (email.value !== confirmEmail.value) {
+    showError('confirmEmail', 'Email addresses do not match');
+    isValid = false;
+  }
+
+  const state = document.getElementById('state');
+  if (!state.value) {
+    showError('state', 'Please select your state');
+    isValid = false;
+  }
+
+  const city = document.getElementById('city');
+  if (!city.value.trim()) {
+    showError('city', 'Please enter your city');
+    isValid = false;
+  }
+
+  const zip = document.getElementById('zip');
+  if (!/^\d{5}(-\d{4})?$/.test(zip.value.trim())) {
+    showError('zip', 'Please enter a valid US zip code');
+    isValid = false;
+  }
+
+  const canOperate = document.getElementById('canOperate');
+  if (!canOperate.checked) {
+    showError('canOperate', 'You must confirm you can operate a phone or laptop');
+    isValid = false;
+  }
+
+  const agreeTerms = document.getElementById('agreeTerms');
+  if (!agreeTerms.checked) {
+    showError('agreeTerms', 'You must agree to the Privacy Policy');
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  // ===== SHOW LOADING =====
+  formContent.style.display = 'none';
+  loadingState.style.display = 'block';
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData
     });
 
-    // ========== FORM VALIDATION & SUBMIT ==========
-    const form = document.getElementById('applicationForm');
-    const successBox = document.getElementById('successBox');
+    const result = await response.json();
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Reset errors
-      document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
-      document.querySelectorAll('input, select').forEach(el => el.classList.remove('error'));
+    loadingState.style.display = 'none';
 
-      let isValid = true;
-
-      // Full Name
-      const fullName = document.getElementById('fullName');
-      if (!fullName.value.trim() || fullName.value.trim().split(' ').length < 2) {
-        showError('fullName', 'Please enter your full name (first & last)');
-        isValid = false;
-      }
-
-      // DOB
-      const dob = document.getElementById('dob');
-      if (!dob.value) {
-        showError('dob', 'Please select your date of birth');
-        isValid = false;
-      }
-
-      // Gender
-      const gender = document.getElementById('gender');
-      if (!gender.value) {
-        showError('gender', 'Please select your gender');
-        isValid = false;
-      }
-
-      // Phone
-      const phone = document.getElementById('phone');
-      const phoneDigits = phone.value.replace(/\D/g, '');
-      if (phoneDigits.length !== 10) {
-        showError('phone', 'Please enter a valid 10-digit US phone number');
-        isValid = false;
-      }
-
-      // Work Hours
-      const workHours = document.getElementById('workHours');
-      if (!workHours.value) {
-        showError('workHours', 'Please select preferred work hours');
-        isValid = false;
-      }
-
-      // Email
-      const email = document.getElementById('email');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email.value)) {
-        showError('email', 'Please enter a valid email address');
-        isValid = false;
-      }
-
-      // Confirm Email
-      const confirmEmail = document.getElementById('confirmEmail');
-      if (email.value !== confirmEmail.value) {
-        showError('confirmEmail', 'Email addresses do not match');
-        isValid = false;
-      }
-
-      // State
-      const state = document.getElementById('state');
-      if (!state.value) {
-        showError('state', 'Please select your state');
-        isValid = false;
-      }
-
-      // City
-      const city = document.getElementById('city');
-      if (!city.value.trim()) {
-        showError('city', 'Please enter your city');
-        isValid = false;
-      }
-
-      // Zip
-      const zip = document.getElementById('zip');
-      const zipRegex = /^\d{5}(-\d{4})?$/;
-      if (!zipRegex.test(zip.value.trim())) {
-        showError('zip', 'Please enter a valid US zip code');
-        isValid = false;
-      }
-
-      // Privacy Policy
-      const agreeTerms = document.getElementById('agreeTerms');
-        if (!agreeTerms.checked) {
-        showError('agreeTerms', 'You must agree to the Privacy Policy before submitting');
-        isValid = false;
+    if (result.success) {
+      successBox.style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again.');
+      formContent.style.display = 'block';
     }
+  } catch (error) {
+    loadingState.style.display = 'none';
+    formContent.style.display = 'block';
+    alert('Submission failed. Please try again later.');
+  }
+});
 
-      // Can Operate checkbox
-      const canOperate = document.getElementById('canOperate');
-      if (!canOperate.checked) {
-        showError('canOperate', 'You must confirm you can operate a phone or laptop');
-        isValid = false;
-      }
-
-      if (!isValid) return;
-
-      // Build email body
-      const otherJobs = document.getElementById('otherJobs').checked ? 'Yes' : 'No';
-      
-      const subject = encodeURIComponent('New Job Application – Work Nest Careers');
-      const body = encodeURIComponent(
-`New Application Received
-
-Full Name: ${fullName.value.trim()}
-Date of Birth: ${dob.value}
-Gender: ${gender.value}
-Phone: ${phone.value}
-Email: ${email.value}
-State: ${state.value}
-City: ${city.value.trim()}
-Zip Code: ${zip.value.trim()}
-Preferred Work Hours: ${workHours.value}
-
-Can operate phone/laptop: Yes
-Has other jobs: ${otherJobs}
-
----
-Submitted via Work Nest Careers website`
-      );
-
-      // Open mailto
-      window.location.href = `mailto:worknestapply@outlook.com?subject=${subject}&body=${body}`;
-
-      // Show success message
-      form.style.display = 'none';
-      successBox.classList.add('show');
-    });
-
-    function showError(fieldId, message) {
-      const input = document.getElementById(fieldId);
-      const error = document.getElementById(fieldId + 'Error');
-      if (input) input.classList.add('error');
-      if (error) {
-        error.textContent = message;
-        error.classList.add('show');
-      }
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
+function showError(fieldId, message) {
+  const input = document.getElementById(fieldId);
+  const error = document.getElementById(fieldId + 'Error');
+  if (input) input.classList.add('error');
+  if (error) {
+    error.textContent = message;
+    error.classList.add('show');
+  }
+}
 
     // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(button => {
