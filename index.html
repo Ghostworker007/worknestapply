@@ -1026,6 +1026,61 @@
   }
 }
 
+/* Prevent overflow on mobile */
+.form-container {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.form-group.full {
+  max-width: 100%;
+}
+
+.upload-box,
+.id-type-select,
+.upload-note,
+.upload-group {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Stronger mobile fix */
+@media (max-width: 640px) {
+
+  .form-container {
+    padding: 24px 16px !important;
+  }
+
+  .upload-note {
+    font-size: 0.84rem;
+    line-height: 1.45;
+    word-wrap: break-word;
+  }
+
+  .id-type-select {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .upload-box {
+    width: 100%;
+    padding: 20px 14px;
+    box-sizing: border-box;
+  }
+
+  .upload-title {
+    font-size: 0.88rem;
+  }
+
+  .upload-sub {
+    font-size: 0.76rem;
+  }
+
+  .upload-label {
+    font-size: 0.88rem;
+  }
+}
+
 /* ========== RECENT PAYOUTS TICKER (Mobile Optimized) ========== */
 /* .payouts-section {
   background: #0b2347;
