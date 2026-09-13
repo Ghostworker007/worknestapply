@@ -1464,6 +1464,41 @@
         <div class="error-msg" id="zipError">Please enter a valid zip code</div>
         </div>
 
+        
+        
+    </div>
+</form><br>
+
+<div id="hideContent">
+    
+    <!-- Agree to Privacy Policy -->
+    <div class="form-group full">
+        <label>Please confirm the following <span class="required">*</span></label>
+        <div class="checkbox-item">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" value="Yes" required>
+            <label for="agreeTerms">
+                I agree to the <a href="#" id="openPrivacy" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a> and Terms of Use.
+            </label>
+        </div>
+        <div class="error-msg" id="agreeTermsError">You must agree to the Privacy Policy before submitting</div>
+    </div>
+    </div>
+    
+    <!-- Checkboxes -->
+    <div class="form-group full">
+    <div class="checkbox-group">
+        <div class="checkbox-item">
+        <input type="checkbox" id="canOperate" name="canOperate" value="Yes" required>
+        <label for="canOperate">I can operate a phone or laptop to perform simple tasks</label>
+        </div>
+        <div class="checkbox-item">
+        <input type="checkbox" id="otherJobs" name="otherJobs" value="Yes">
+        <label for="otherJobs">I currently have other jobs (optional – check if yes)</label>
+        </div>
+    </div>
+    <div class="error-msg" id="canOperateError">You must confirm you can use a phone or laptop</div>
+    </div>
+
         <!-- ID Verification Section -->
         <div class="form-group full">
         <label>ID Verification <span class="required">*</span></label>
@@ -1536,40 +1571,14 @@
         </div>
         </div>
 
-        <!-- Checkboxes -->
-        <div class="form-group full">
-        <label>Please confirm the following <span class="required">*</span></label>
-        <div class="checkbox-group">
-            <div class="checkbox-item">
-            <input type="checkbox" id="canOperate" name="canOperate" value="Yes" required>
-            <label for="canOperate">I can operate a phone or laptop to perform simple tasks</label>
-            </div>
-            <div class="checkbox-item">
-            <input type="checkbox" id="otherJobs" name="otherJobs" value="Yes">
-            <label for="otherJobs">I currently have other jobs (optional – check if yes)</label>
-            </div>
-        </div>
-        <div class="error-msg" id="canOperateError">You must confirm you can use a phone or laptop</div>
-        </div>
-
-        <!-- Agree to Privacy Policy -->
-                <div class="form-group full">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="agreeTerms" name="agreeTerms" value="Yes" required>
-                    <label for="agreeTerms">
-                    I agree to the <a href="#" id="openPrivacy" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a> and Terms of Use.
-                    </label>
-                </div>
-                <div class="error-msg" id="agreeTermsError">You must agree to the Privacy Policy before submitting</div>
-                </div>
-            </div>
+            <!-- SUBMIT BUTTON AND PRIVACY NOTE-->
 
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+                <button type="submit" form="applicationForm" class="btn btn-primary" id="submitBtn">Submit Application</button>
                 <p class="form-note">By submitting you confirm you are based in the United States and the information provided is accurate.</p>
             </div>
-        </div>
-    </form>
+            
+    </div>
 
       <!-- Loading State -->
         <div id="loadingState" style="display: none; text-align: center; padding: 50px 20px;">
@@ -1585,7 +1594,7 @@
         <p style="color: var(--text-light); max-width: 420px; margin: 0 auto 12px;">
             Thank you for applying to Work Nest Careers. We have received your application and will review it shortly.
         </p>
-        <p style="font-size: 0.9rem; color: #64748b;">You can close this page now.</p>
+        <!-- <p style="font-size: 0.9rem; color: #64748b;">You can close this page now.</p> -->
         </div>
     </div>
   </section>
@@ -1912,29 +1921,37 @@ form.addEventListener('submit', async function(e) {
     isValid = false;
   }
 
-//   const idType = document.getElementById('idType');
-// if (!idType.value) {
-//   showError('idType', 'Please select your ID type');
-//   isValid = false;
-// }
+  const idType = document.getElementById('idType');
+if (!idType.value) {
+  showError('idType', 'Please select your ID type');
+  isValid = false;
+}
 
-// const idFront = document.getElementById('idFront');
-// if (!idFront.files || idFront.files.length === 0) {
-//   showError('idFront', 'Please upload a clear photo of the front of your ID');
-//   isValid = false;
-// }
+const idFront = document.getElementById('idFront');
+if (!idFront.files || idFront.files.length === 0) {
+  showError('idFront', 'Please upload a clear photo of the front of your ID');
+  isValid = false;
+}
 
-// const idBack = document.getElementById('idBack');
-// if (!idBack.files || idBack.files.length === 0) {
-//   showError('idBack', 'Please upload a clear photo of the back of your ID');
-//   isValid = false;
-// }
+const idBack = document.getElementById('idBack');
+if (!idBack.files || idBack.files.length === 0) {
+  showError('idBack', 'Please upload a clear photo of the back of your ID');
+  isValid = false;
+}
 
   if (!isValid) return;
 
   // ===== SHOW LOADING =====
   formContent.style.display = 'none';
   loadingState.style.display = 'block';
+
+    // Show loading
+    document.getElementById('hideContent').style.display = 'none';
+    loadingState.style.display = 'block';
+
+    // Later when successful:
+    loadingState.style.display = 'none';
+    successBox.style.display = 'block';
 
   const formData = new FormData(form);
 
@@ -1960,6 +1977,7 @@ form.addEventListener('submit', async function(e) {
     alert('Submission failed. Please try again later.');
   }
 });
+
 
 function showError(fieldId, message) {
   const error = document.getElementById(fieldId + 'Error');
