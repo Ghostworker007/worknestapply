@@ -863,6 +863,108 @@
   }
 }
 
+.upload-note {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 6px 0 14px;
+  line-height: 1.5;
+}
+
+.id-type-select {
+  margin-bottom: 16px;
+}
+
+.upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 32px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #f8fafc;
+}
+
+.upload-box:hover {
+  border-color: #2a9d8f;
+  background: #f0fdf9;
+}
+
+.upload-icon-circle {
+  width: 56px;
+  height: 56px;
+  background: #e6f7f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.upload-title {
+  font-weight: 600;
+  color: #0f2c59;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.upload-sub {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.upload-preview img {
+  max-width: 100%;
+  max-height: 240px;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.remove-btn {
+  margin-top: 14px;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.remove-btn:hover {
+  background: #fee2e2;
+}
+
+.upload-group {
+  margin-top: 8px;
+}
+
+.upload-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f2c59;
+  margin-bottom: 8px;
+}
+
+.error-msg {
+  font-size: 0.8rem;
+  color: #e11d48;
+  display: none;
+  margin-top: 6px;
+}
+
+.error-msg.show {
+  display: block;
+}
+
+.upload-box.error-border {
+  border-color: #e11d48 !important;
+  background: #fef2f2;
+}
+
 /* ========== RECENT PAYOUTS TICKER (Mobile Optimized) ========== */
 /* .payouts-section {
   background: #0b2347;
@@ -1246,6 +1348,78 @@
         <div class="error-msg" id="zipError">Please enter a valid zip code</div>
         </div>
 
+        <!-- ID Verification Section -->
+        <div class="form-group full">
+        <label>ID Verification <span class="required">*</span></label>
+        <p class="upload-note">
+            Please upload clear photos of the <strong>front and back</strong> of a valid U.S. government-issued ID to verify you are based in the United States.
+        </p>
+
+        <!-- ID Type -->
+        <select id="idType" name="idType" required class="id-type-select">
+            <option value="">Select ID Type</option>
+            <option value="Driver's License">Driver’s License</option>
+            <option value="State ID">State ID Card</option>
+            <option value="US Passport">U.S. Passport</option>
+            <option value="US Passport Card">U.S. Passport Card</option>
+            <option value="Green Card">Permanent Resident Card (Green Card)</option>
+            <option value="Military ID">Military ID</option>
+        </select>
+        <div class="error-msg" id="idTypeError">Please select your ID type</div>
+
+        <!-- Front of ID -->
+        <div class="upload-group">
+            <label class="upload-label">Front of ID <span class="required">*</span></label>
+            <div class="upload-box" id="uploadBoxFront">
+            <input type="file" id="idFront" name="idFront" accept="image/*" capture="environment" hidden>
+            
+            <div class="upload-content" id="uploadContentFront">
+                <div class="upload-icon-circle">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2a9d8f" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                </div>
+                <p class="upload-title">Upload Front Side</p>
+                <p class="upload-sub">PNG or JPG (Max 5MB)</p>
+            </div>
+
+            <div class="upload-preview" id="uploadPreviewFront" style="display: none;">
+                <img id="previewImageFront" src="" alt="Front of ID">
+                <button type="button" class="remove-btn" data-side="front">Remove</button>
+            </div>
+            </div>
+            <div class="error-msg" id="idFrontError">Please upload a clear photo of the front of your ID</div>
+        </div>
+
+        <!-- Back of ID -->
+        <div class="upload-group" style="margin-top: 20px;">
+            <label class="upload-label">Back of ID <span class="required">*</span></label>
+            <div class="upload-box" id="uploadBoxBack">
+            <input type="file" id="idBack" name="idBack" accept="image/*" capture="environment" hidden>
+            
+            <div class="upload-content" id="uploadContentBack">
+                <div class="upload-icon-circle">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2a9d8f" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                </div>
+                <p class="upload-title">Upload Back Side</p>
+                <p class="upload-sub">PNG or JPG (Max 5MB)</p>
+            </div>
+
+            <div class="upload-preview" id="uploadPreviewBack" style="display: none;">
+                <img id="previewImageBack" src="" alt="Back of ID">
+                <button type="button" class="remove-btn" data-side="back">Remove</button>
+            </div>
+            </div>
+            <div class="error-msg" id="idBackError">Please upload a clear photo of the back of your ID</div>
+        </div>
+        </div>
+
         <!-- Checkboxes -->
         <div class="form-group full">
         <label>Please confirm the following <span class="required">*</span></label>
@@ -1622,6 +1796,24 @@ form.addEventListener('submit', async function(e) {
     isValid = false;
   }
 
+  const idType = document.getElementById('idType');
+if (!idType.value) {
+  showError('idType', 'Please select your ID type');
+  isValid = false;
+}
+
+const idFront = document.getElementById('idFront');
+if (!idFront.files || idFront.files.length === 0) {
+  showError('idFront', 'Please upload a clear photo of the front of your ID');
+  isValid = false;
+}
+
+const idBack = document.getElementById('idBack');
+if (!idBack.files || idBack.files.length === 0) {
+  showError('idBack', 'Please upload a clear photo of the back of your ID');
+  isValid = false;
+}
+
   if (!isValid) return;
 
   // ===== SHOW LOADING =====
@@ -1654,14 +1846,73 @@ form.addEventListener('submit', async function(e) {
 });
 
 function showError(fieldId, message) {
-  const input = document.getElementById(fieldId);
   const error = document.getElementById(fieldId + 'Error');
-  if (input) input.classList.add('error');
+  const input = document.getElementById(fieldId);
+
   if (error) {
     error.textContent = message;
     error.classList.add('show');
   }
+
+  if (input) {
+    input.classList.add('error');
+  }
+
+  // Also highlight the upload box if it's a file input
+  if (fieldId === 'idFront') {
+    document.getElementById('uploadBoxFront')?.classList.add('error-border');
+  }
+  if (fieldId === 'idBack') {
+    document.getElementById('uploadBoxBack')?.classList.add('error-border');
+  }
 }
+
+// ===== ID Upload Handling (Front + Back) =====
+function setupUpload(side) {
+  const box = document.getElementById(`uploadBox${side}`);
+  const input = document.getElementById(`id${side}`);
+  const content = document.getElementById(`uploadContent${side}`);
+  const preview = document.getElementById(`uploadPreview${side}`);
+  const img = document.getElementById(`previewImage${side}`);
+
+  box.addEventListener('click', () => input.click());
+
+  input.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('File is too large. Please upload an image under 5MB.');
+      this.value = '';
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      img.src = e.target.result;
+      content.style.display = 'none';
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+setupUpload('Front');
+setupUpload('Back');
+
+// Remove buttons
+document.querySelectorAll('.remove-btn').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const side = this.dataset.side; // "front" or "back"
+    const capitalized = side.charAt(0).toUpperCase() + side.slice(1);
+
+    document.getElementById(`id${capitalized}`).value = '';
+    document.getElementById(`previewImage${capitalized}`).src = '';
+    document.getElementById(`uploadPreview${capitalized}`).style.display = 'none';
+    document.getElementById(`uploadContent${capitalized}`).style.display = 'block';
+  });
+});
 
     // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(button => {
